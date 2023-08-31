@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function MiSuperBoton() {
-  const [encendido, setEncendido] = useState(true);
+function MiContador() {
+  const [contador, setContador] = useState(0);
 
-  function handleClick() {
-    setEncendido(!encendido);
-  }
+  const incrementarContador = () => {
+    setContador(contador + 1);
+  };
 
   return (
-    <button onClick={handleClick}>
-      {encendido ? 'Encendido' : 'Apagado'}
-    </button>
+    <div id="contenedorPrincipal">
+      <p>Contador de boton: <span>{contador}</span></p>
+      <button id="botonPrincipal" onClick={incrementarContador}>Incrementar</button>
+    </div>
   );
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MiSuperBoton />
+    <MiContador />
   </React.StrictMode>
 );
