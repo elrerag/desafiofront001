@@ -1,10 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+function MiSuperBoton() {
+  const [encendido, setEncendido] = useState(true);
+
+  function handleClick() {
+    setEncendido(!encendido);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      {encendido ? 'Encendido' : 'Apagado'}
+    </button>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <MiSuperBoton />
+  </React.StrictMode>
+);
